@@ -1,6 +1,8 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary.js";
+import ContactData from "./ContactData/ContactData.js";
 
 class Checkout extends React.Component {
   state = {
@@ -11,6 +13,16 @@ class Checkout extends React.Component {
       cheese: 1
     }
   };
+
+  componentDidMount() {
+    const query = new URLSearchParams(this.props.location.search);
+    const ingredients = {};
+    for (let param of query.entries()) {
+      // ['salad' '1']
+      ingredients[param[0]] = +param[1];
+    }
+    this.setState({ ingredients: ingredients });
+  }
 
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
@@ -27,6 +39,10 @@ class Checkout extends React.Component {
           ingredients={this.state.ingredients}
           checkoutCancelled={this.checkoutCancelledHandler}
           checkoutContinued={this.checkoutContinuedHandler}
+        />
+        <Route
+          path={this.props.match.path + "/contact-data"}
+          component={ContactData}
         />
       </div>
     );

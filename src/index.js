@@ -11,7 +11,7 @@ import thunk from "redux-thunk";
 
 import burgerBuilderReducer from "./store/reducers/burgerBuilder.js";
 import orderReducer from "./store/reducers/order.js";
-import authReducer from './store/reducers/auth.js'
+import authReducer from "./store/reducers/auth.js";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

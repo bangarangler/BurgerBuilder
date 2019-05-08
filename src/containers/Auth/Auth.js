@@ -131,8 +131,8 @@ class Auth extends React.Component {
 
     let errorMessage = null;
 
-    if(this.props.error) {
-      errorMessage = (<p>{this.props.error.message}</p>)
+    if (this.props.error) {
+      errorMessage = <p>{this.props.error.message}</p>;
     }
 
     return (

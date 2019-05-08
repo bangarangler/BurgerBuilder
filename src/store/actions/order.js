@@ -22,7 +22,7 @@ export const purchaseBurgerStart = () => {
   };
 };
 
-export const purchaseBurger = ( orderData, token ) => {
+export const purchaseBurger = (orderData, token) => {
   return dispatch => {
     dispatch(purchaseBurgerStart());
     axios
